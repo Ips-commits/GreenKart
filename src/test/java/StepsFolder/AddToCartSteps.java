@@ -1,5 +1,9 @@
 package StepsFolder;
 
+
+
+import org.testng.Assert;
+
 import com.qa.factory.DriverFactory;
 import com.qa.pages.AddToCartPages;
 
@@ -32,5 +36,17 @@ public class AddToCartSteps
 		System.out.println("Yet to Automate");
 	   
 	}
-
+	
+	@And("Customer adds Cucumber and MuskMelon")
+	public void customer_adds_multiple_items() throws InterruptedException
+	{
+		AddToCartPage.clickonaddtocart();
+		
+		AddToCartPage.ClickMultipleItems();
+	}
+	
+	@Then("Cart logo in updated by two")
+	public void cart_updated_by_two() throws InterruptedException {
+	    Assert.assertEquals("2", AddToCartPage.CheckCartNo(), "Please recheck the cart value. Expected [2] but found [" + AddToCartPage.CheckCartNo() + "]");
+	}
 }
