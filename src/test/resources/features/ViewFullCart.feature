@@ -7,6 +7,11 @@ Then Customer clicks on cart logo
 And Validate all items in the cart
 
 
+Scenario: Proceed to Checkout
+Given Customer navigates to GreenKart Application
+And Customer adds Cucumber and MuskMelon
+Then Customer clicks on cart logo
+And Customer clicks on Checkout btn
 
 
 

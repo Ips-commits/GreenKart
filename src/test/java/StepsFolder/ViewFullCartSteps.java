@@ -1,5 +1,8 @@
 package StepsFolder;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.testng.Assert;
 
 import com.qa.factory.DriverFactory;
@@ -20,9 +23,13 @@ public class ViewFullCartSteps {
 		
 	}
 	@And("Validate all items in the cart")
-	public void validate_all_items_in_the_cart()
-	{
-		Assert.assertEquals("Cucumber - 1 Kg", FullCartPage.ValidateCartItems(), "Please recheck the cart value. Expected [2] but found [" + FullCartPage.ValidateCartItems() + "]");
+	public void validate_all_items_in_the_cart() {
+	    List<String> actualItems = FullCartPage.validateCartItems();
+	    List<String> expectedItems = Arrays.asList("Cucumber - 1 Kg", "Musk Melon - 1 Kg");
+
+	    Assert.assertEquals(actualItems, expectedItems, 
+	        "Please recheck the cart value. Expected " + expectedItems + " but found " + actualItems);
 	}
+
 
 }

@@ -15,7 +15,7 @@ public class AddToCartPages
 {
 	private WebDriver driver;
 	private static By Cucumber=By.xpath("(//button[@type='button'][normalize-space()='ADD TO CART'])[3]");
-	private static By MuskMelon=By.xpath("(//button[@type='button'][normalize-space()='ADD TO CART'])[19]");
+	private static By MuskMelon=By.xpath("(//button[@type='button'][normalize-space()='ADD TO CART'])[18]");
 	private static By CartNo=By.xpath("//strong[normalize-space()='2']");
 	
 	public AddToCartPages(WebDriver driver) 
@@ -34,7 +34,7 @@ public class AddToCartPages
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement element=driver.findElement(MuskMelon);
 		js.executeScript("arguments[0].scrollIntoView();", element);
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+		js.executeScript("arguments[0].click();", element);
 	}
 	public String CheckCartNo() throws InterruptedException
 	{
